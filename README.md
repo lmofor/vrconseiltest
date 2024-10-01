@@ -5,5 +5,5 @@ JDK version=21
 
 JUnit version=4.13.2
 
-nom du ficher txt creer pour les tests=fichier.txt
+nom du ficher txt creer pour les tests=fichier.txt qui se trouve à la racine du projet
 
