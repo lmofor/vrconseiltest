@@ -17,6 +17,27 @@
         <fileset dir="${lib.dir}" includes="**/*.jar"/>
     </path>
 
+<!--    <target name="compile" depends="init">-->
+<!--        <javac srcdir="src" destdir="bin" classpathref="classpath"/>-->
+<!--    </target>-->
+    <property name="build.test.dir" value="${basedir}/build/test"/>
+    <property name="reports.test.dir" value="${basedir}/build/test/report"/>
+    <property name="src.test.dir" value="${basedir}/test"/>
+    <target name="test" depends="compile">
+        <mkdir dir="${build.test.dir}"/>
+        <javac srcdir="src/test" destdir="${build.test.dir}" classpathref="classpath"/>
+        <junit fork="yes" printsummary="yes" haltonfailure="no">
+            <classpath>
+                <pathelement location="${build.test.dir}"/>
+                <path refid="classpath"/>
+            </classpath>
+            <batchtest todir="${reports.test.dir}">
+                <fileset dir="${src.test.dir}">
+                    <include name="**/*Test.java"/>
+                </fileset>
+            </batchtest>
+        </junit>
+    </target>
 
 
     <!--
