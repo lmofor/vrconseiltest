@@ -27,7 +27,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       with:
           projectKey: vrconseiltest
-          organization: vrconseil
+          organization: lmofor
           scanner-mode: sarif
     - name: Build with Ant
       run: ant -noinput -buildfile build.xml
