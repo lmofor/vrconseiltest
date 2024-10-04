@@ -23,5 +23,7 @@ jobs:
         distribution: 'temurin'
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@v3.1.0
+      env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     - name: Build with Ant
       run: ant -noinput -buildfile build.xml
