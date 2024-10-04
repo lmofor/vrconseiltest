@@ -30,7 +30,7 @@ jobs:
           #organization: lmofor
           #scanner-mode: sarif
     - name: Download SonarScanner for Ant
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4
       with:
         name: sonar-scanner
     - name: Configure SonarScanner
