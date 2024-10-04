@@ -33,11 +33,10 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: sonar-scanner
-    - name: Set up environment variables
+    - name: Configure SonarScanner
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Configure SonarScanner
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}    
       run: |
         echo "sonar.projectKey=${{ github.repository }}" > sonar-project.properties
         echo "sonar.organization=${{ github.repository_owner }}" >> sonar-project.properties
