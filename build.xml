@@ -10,12 +10,13 @@
 <project name="TestVrConseil" default="default" basedir=".">
     <description>Builds, tests, and runs the project TestVrConseil.</description>
     <import file="nbproject/build-impl.xml"/>
+
     <property name="lib.dir" value="${basedir}/lib"/>
 
     <path id="classpath">
         <fileset dir="${lib.dir}" includes="**/*.jar"/>
     </path>
-    
+
 
 
     <!--
