@@ -25,7 +25,7 @@
     <property name="src.test.dir" value="${basedir}/test"/>
     <target name="test" depends="compile">
         <mkdir dir="${build.test.dir}"/>
-        <javac srcdir="src/test" destdir="${build.test.dir}" classpathref="classpath"/>
+        <javac srcdir="test" destdir="${build.test.dir}" classpathref="classpath"/>
         <junit fork="yes" printsummary="yes" haltonfailure="no">
             <classpath>
                 <pathelement location="${build.test.dir}"/>
