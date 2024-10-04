@@ -10,6 +10,16 @@
 <project name="TestVrConseil" default="default" basedir=".">
     <description>Builds, tests, and runs the project TestVrConseil.</description>
     <import file="nbproject/build-impl.xml"/>
+    <property name="lib.dir" value="${basedir}/lib"/>
+
+    <path id="classpath">
+        <fileset dir="${lib.dir}" includes="**/*.jar"/>
+    </path>
+    <target name="compile" depends="init">
+        <javac srcdir="src" destdir="bin" classpathref="classpath"/>
+    </target>
+
+
     <!--
 
     There exist several targets which are by default empty and which can be 
