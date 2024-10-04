@@ -21,27 +21,14 @@ jobs:
       with:
         java-version: '21'
         distribution: 'temurin'
-    #- name: SonarCloud Scan
-      #uses: SonarSource/sonarcloud-github-action@v3.1.0
-      #env:
-          #SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      #with:
-          #projectKey: lmofor_vrconseiltest
-          #organization: lmofor
-          #scanner-mode: sarif
-    - name: Download SonarScanner CLI
-      uses: actions/download-artifact@v4
-      with:
-        name: sonar-scanner
-    - name: Configure SonarScanner
+    - name: SonarCloud Scan
+      uses: SonarSource/sonarcloud-github-action@v3.1.0
       env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}    
-      run: |
-        echo "sonar.projectKey=${{ github.repository }}" > sonar-project.properties
-        echo "sonar.organization=${{ github.repository_owner }}" >> sonar-project.properties
-        echo "sonar.host.url=https://sonarcloud.io" >> sonar-project.properties
-    - name: Execute SonarScanner
-      run: ./sonar-scanner
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+          projectKey: lmofor_vrconseiltest
+          organization: lmofor
+          scanner-mode: sarif
     - name: Build with Ant
       run: ant -noinput -buildfile build.xml
