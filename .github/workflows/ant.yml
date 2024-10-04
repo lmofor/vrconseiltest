@@ -26,7 +26,7 @@ jobs:
       env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       with:
-          projectKey: vrconseiltest
+          projectKey: lmofor_vrconseiltest
           organization: lmofor
           scanner-mode: sarif
     - name: Build with Ant
