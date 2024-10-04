@@ -21,6 +21,8 @@ jobs:
       with:
         java-version: '21'
         distribution: 'temurin'
+    - name: Build with Ant
+      run: ant -noinput -buildfile build.xml
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@v3.1.0
       env:
@@ -30,5 +32,4 @@ jobs:
           projectKey: lmofor_vrconseiltest
           organization: lmofor
           scanner-mode: sarif
-    - name: Build with Ant
-      run: ant -noinput -buildfile build.xml
+
